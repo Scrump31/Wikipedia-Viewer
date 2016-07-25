@@ -20,10 +20,15 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+		<style media="screen">
+			.results:hover {
+					background-color: gray;
+			}
+		</style>
   </head>
-  <body class="container text-center">
+  <body class="container">
 
-			<header>
+			<header class="text-center">
 				<div class="jumbotron">
 				  <h1>Wikipedia Viewer</h1>
 				  <p>{{greeting}} Please use the input below to search.</p>
@@ -31,7 +36,7 @@
 			</header>
 
 			<!-- Random Article Button -->
-			<section class="row">
+			<section class="row" style="margin-bottom: 2rem;">
 				<div class="col-lg-6 col-lg-offset-3">
 					<a style="width:100%; margin-bottom:2rem;" class="btn btn-primary" target="_blank" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article!</a>
 
@@ -52,8 +57,22 @@
 			<section id="results">
 				<div class="row">
 					<div class="col-lg-12">
-						results here
-					</div>
+						
+						<!-- result 1 -->
+						<div class="results bg-primary container" style="margin-top: 1rem; margin-bottom: 1rem;">
+							<a style="color:white;text-decoration:none;" href="http://www.msn.com" target="_blank">
+							<h4>Article Name</h4>
+							<p>Article Info</p>
+							</a>
+						</div>
+
+						<!-- result 2 -->
+						<div class="results bg-primary container" style="margin-top: 1rem; margin-bottom: 1rem;">
+							<a style="color:white;text-decoration:none;" href="http://www.msn.com" target="_blank">
+							<h4>Article 2 Name</h4>
+							<p>Article 2 Info</p>
+							</a>
+						</div>
 				</div>
 			</section>
 
