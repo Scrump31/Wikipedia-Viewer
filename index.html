@@ -6,7 +6,7 @@
 		- Use this link to experiment with Wikipedia's API:	https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm
 -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="wikiApp" ng-controller="MainCtrl">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,16 +15,50 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body class="container text-center">
 
+			<header>
+				<div class="jumbotron">
+				  <h1>Wikipedia Viewer</h1>
+				  <p>{{greeting}} Please use the input below to search.</p>
+				</div>
+			</header>
+
+			<!-- Random Article Button -->
+			<section class="row">
+				<div class="col-lg-6 col-lg-offset-3">
+					<a style="width:100%; margin-bottom:2rem;" class="btn btn-primary" target="_blank" href="https://en.wikipedia.org/wiki/Special:Random">Click here for a random article!</a>
+
+				</div><!-- /.col-lg-6 -->
+
+				<!-- Search Box -->
+				<div class="col-lg-6 col-lg-offset-3">
+				<div class="input-group">
+				      <input ng-model="search" type="text" class="form-control" placeholder="Search for...">
+				      <span class="input-group-btn">
+				        <button class="btn btn-success" type="submit">Go!</button>
+				      </span>
+				    </div><!-- /input-group -->
+				  </div><!-- /.col-lg-6 -->
+			</section>
+
+			<!-- Search results here -->
+			<section id="results">
+				<div class="row">
+					<div class="col-lg-12">
+						results here
+					</div>
+				</div>
+			</section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		<script src="app.js" charset="utf-8"></script>
   </body>
 </html>
