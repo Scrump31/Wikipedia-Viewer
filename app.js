@@ -3,6 +3,19 @@
 }());
 
 var wikiApp = angular.module('wikiApp', [])
-.controller('MainCtrl', ['$scope', function($scope) {
-  $scope.greeting = 'Hola!';
-}]);
+.controller('ApiCtrl', function($scope, $http) {
+  var searchItm = "dog";
+  $http.get("https://crossorigin.me/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="+searchItm+"")
+  .then(function(response) {
+      $scope.wikiresults = response.data;
+      for(var i = 0; i < $scope.wikiresults.length; i++) {
+        $('.col-lg-12').prepend('<div class="results bg-primary container" style="margin-top: 1rem; margin-bottom: 1rem;">'+
+         ' <a style="color:white;text-decoration:none;" href="'+$scope.wikiresults[3][i]+'" target="_blank">'+
+         '<h4>'+$scope.wikiresults[1][i]+'</h4>'+
+         '<p>'+$scope.wikiresults[2][i]+'</p>'+
+         '</a>' +
+         '</div>'
+        );
+      }
+  });
+});

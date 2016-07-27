@@ -1,12 +1,5 @@
-<!-- Project: Build a Wikipedia Viewer
-		- search Wikipedia entries in a search box and see the resulting Wikipedia entries.
-		- click a button to see random Wikipedia entry.
-			- Here's a URL you can use to get a random Wikipedia article: https://en.wikipedia.org/wiki/Special:Random
-		- Here's an entry on using Wikipedia's API: https://www.mediawiki.org/wiki/API:Main_page
-		- Use this link to experiment with Wikipedia's API:	https://en.wikipedia.org/wiki/Special:ApiSandbox#action=query&titles=Main%20Page&prop=revisions&rvprop=content&format=jsonfm
--->
 <!DOCTYPE html>
-<html lang="en" ng-app="wikiApp" ng-controller="MainCtrl">
+<html lang="en" ng-app="wikiApp" ng-controller="ApiCtrl">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -31,7 +24,7 @@
 			<header class="text-center">
 				<div class="jumbotron">
 				  <h1>Wikipedia Viewer</h1>
-				  <p>{{greeting}} Please use the input below to search.</p>
+				  <p>Please use the input below to search.</p>
 				</div>
 			</header>
 
@@ -45,9 +38,9 @@
 				<!-- Search Box -->
 				<div class="col-lg-6 col-lg-offset-3">
 				<div class="input-group">
-				      <input ng-model="search" type="text" class="form-control" placeholder="Search for...">
+				      <input ng-submit="wikisearch()" type="text" class="form-control" placeholder="Search for...">
 				      <span class="input-group-btn">
-				        <button class="btn btn-success" type="submit">Go!</button>
+				        <button class="btn btn-success" type="button">Go!</button>
 				      </span>
 				    </div><!-- /input-group -->
 				  </div><!-- /.col-lg-6 -->
@@ -57,23 +50,10 @@
 			<section id="results">
 				<div class="row">
 					<div class="col-lg-12">
-						
-						<!-- result 1 -->
-						<div class="results bg-primary container" style="margin-top: 1rem; margin-bottom: 1rem;">
-							<a style="color:white;text-decoration:none;" href="http://www.msn.com" target="_blank">
-							<h4>Article Name</h4>
-							<p>Article Info</p>
-							</a>
-						</div>
 
-						<!-- result 2 -->
-						<div class="results bg-primary container" style="margin-top: 1rem; margin-bottom: 1rem;">
-							<a style="color:white;text-decoration:none;" href="http://www.msn.com" target="_blank">
-							<h4>Article 2 Name</h4>
-							<p>Article 2 Info</p>
-							</a>
-						</div>
-				</div>
+						<!-- result 1 -->
+					</div><!-- col-lg-12 -->
+				</div><!-- row -->
 			</section>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
