@@ -2,13 +2,19 @@
    'use strict';
 }());
 var wikiApp = angular.module('wikiApp', [])
+// snippet to help with CORS issue
+.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }])
+
 .controller('ApiCtrl', function($scope, $http) {
   // Runs when search button clicked
   $scope.wikisearch = function() {
     var searchItm = $('#searchItm').val();
     // If search input not empty, run the search
     if(searchItm !== '') {
-    $http.get("https://crossorigin.me/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="+searchItm+"")
+      $http.get("https://crossorigin.me/https://en.wikipedia.org/w/api.php?action=opensearch&format=json&search="+searchItm+"")
     .then(function(response) {
         $scope.wikiresults = response.data;
         // Clears out search result area
