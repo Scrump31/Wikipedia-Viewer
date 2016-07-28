@@ -9,6 +9,12 @@ var wikiApp = angular.module('wikiApp', [])
     }])
 
 .controller('ApiCtrl', function($scope, $http) {
+  // Run wikisearch function if "enter" key is pressed
+  $("#searchItm").keypress(function(e){
+        if(e.which==13){
+          $("button").click();
+        }
+      });
   // Runs when search button clicked
   $scope.wikisearch = function() {
     var searchItm = $('#searchItm').val();
